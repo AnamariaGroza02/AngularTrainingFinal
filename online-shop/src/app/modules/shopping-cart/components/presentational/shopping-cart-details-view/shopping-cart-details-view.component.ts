@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/types/products.types';
+import { ShoppingCartDetail } from 'src/app/types/shoppingCart';
 
 @Component({
   selector: 'app-shopping-cart-details-view',
@@ -7,5 +8,5 @@ import { IProduct } from 'src/app/types/products.types';
   styleUrls: ['./shopping-cart-details-view.component.scss'],
 })
 export class ShoppingCartDetailsViewComponent {
-  @Input() products : any;
+  @Input() products?: ShoppingCartDetail[];
 }

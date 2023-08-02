@@ -2,12 +2,11 @@ import { IProduct } from '../types/products.types';
 
 export function getProductDetailsMock(name = 'product1'): IProduct {
   return {
-    id: Math.floor(Math.random() * 10000 + 1).toString(),
-    name: name,
-    category: 'default category',
+    productId: Math.floor(Math.random() * 10000 + 1).toString(),
+    productName: name,
+    categoryName: 'default category',
     price: 10,
-    description: 'lorem ipsum',
-    quantity: 5,
+    productDescription: 'lorem ipsum',
   };
 }
 

@@ -1,22 +1,22 @@
-<div >
-    <table >
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{ product.product.category }}</td>
-                <td>{{ product.product.name  }}</td>
-                <td>{{ product.product.price  }}</td>
-                <td>{{ product.product.quantity  }}</td>
-                <td><app-icon-button iconType="delete" class="buttonType2"></app-icon-button></td>
-            </tr>
-        </tbody>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.categoryName }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td><app-icon-button iconType="delete"></app-icon-button></td>
+      </tr>
+    </tbody>
   </table>
 </div>

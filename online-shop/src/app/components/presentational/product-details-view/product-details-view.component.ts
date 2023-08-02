@@ -3,21 +3,23 @@ import { ShoppingCartService } from 'src/app/modules/shopping-cart/services/shop
 import { IProduct } from 'src/app/types/products.types';
 
 @Component({
-  selector: 'app-products-details-view',
-  templateUrl: './products-details-view.component.html',
-  styleUrls: ['./products-details-view.component.scss'],
+  selector: 'app-product-details-view',
+  templateUrl: './product-details-view.component.html',
+  styleUrls: ['./product-details-view.component.scss'],
 })
-export class ProductsDetailsViewComponent {
+export class ProductDetailsViewComponent {
   @Input() productDetails: IProduct | undefined;
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   addToCart(): void {
     if (this.productDetails) {
-      // this.shoppingCartService.addToCart(this.productDetails);
       this.shoppingCartService.addProductToCart(this.productDetails);
       window.alert('Your product has been added to the cart!');
     }
+  }
+  deleteProduct(): void {
+    return;
   }
 
 }
