@@ -19,9 +19,9 @@ export class ProductsDetailsComponent {
     return text;
   }
   ngOnInit() {
-    const productName = this.route.snapshot.paramMap.get('name');
+    const productId = this.route.snapshot.paramMap.get('id');
     this.productDetails = getProductDetailsMock(
-      this.nullToUndefined(productName)
+      this.nullToUndefined(productId)
     );
   }
 }

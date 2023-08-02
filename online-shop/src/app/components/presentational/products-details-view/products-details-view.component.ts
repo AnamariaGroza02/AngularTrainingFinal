@@ -14,7 +14,10 @@ export class ProductsDetailsViewComponent {
 
   addToCart(): void {
     if (this.productDetails) {
-      this.shoppingCartService.addToCart(this.productDetails);
+      // this.shoppingCartService.addToCart(this.productDetails);
+      this.shoppingCartService.addProductToCart(this.productDetails);
+      window.alert('Your product has been added to the cart!');
     }
   }
+
 }

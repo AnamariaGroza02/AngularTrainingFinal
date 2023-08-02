@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent  {
+  // productsLoaded = false;
+  // constructor(private productsService: ProductsService) {}
+  // ngOnInit(): void {
+  //   this.productsService
+  //     .getProducts()
+  //     .subscribe(() => (this.productsLoaded = true));
+  // }
   title = 'online-shop';
 }

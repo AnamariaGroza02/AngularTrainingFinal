@@ -1,31 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsListComponent } from './components/containers/products-list/products-list.component';
-import { ProductsDetailsComponent } from './components/containers/products-details/products-details.component';
+import { ProductDetailsComponent } from './components/containers/product-details/product-details.component';
 import { ShoppingCartDetailsComponent } from './modules/shopping-cart/components/containers/shopping-cart-details/shopping-cart-details.component';
-
+import { MyRoutes } from './util/MyRoutes';
 const routes: Routes = [
   {
-  path: '',
+    path: '',
     component: ProductsListComponent,
   },
   {
-    path:'products/:name',
-    component: ProductsDetailsComponent
+    path: MyRoutes.PRODUCT_DETAILS,
+    component: ProductDetailsComponent,
   },
   {
-    path:'products',
-    component: ProductsListComponent
+    path: MyRoutes.PRODUCTS,
+    component: ProductsListComponent,
   },
   {
-    path:'shopping-cart',
-    component: ShoppingCartDetailsComponent
+    path: MyRoutes.SHOPPING_CART,
+    component: ShoppingCartDetailsComponent,
   },
   {
-    path:'**',
-    component: ProductsListComponent
+    path: '**',
+    component: ProductsListComponent,
   },
-
 ];
 
 @NgModule({

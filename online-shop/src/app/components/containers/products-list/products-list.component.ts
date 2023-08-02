@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { getProductDetailsList } from 'src/app/mocks/products.mocks';
+import { getProductsDetailsListMock } from 'src/app/mocks/products.mocks';
 import { IProduct } from 'src/app/types/products.types';
 
 @Component({
@@ -9,5 +9,5 @@ import { IProduct } from 'src/app/types/products.types';
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent {
-  products = getProductDetailsList(10);
+  products = getProductsDetailsListMock(10);
 }

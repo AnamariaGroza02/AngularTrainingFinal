@@ -5,22 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './components/containers/products-list/products-list.component';
 import { ProductsListViewComponent } from './components/presentational/products-list-view/products-list-view.component';
-import { ProductsDetailsComponent } from './components/containers/products-details/products-details.component';
-import { ProductsDetailsViewComponent } from './components/presentational/products-details-view/products-details-view.component';
+import { ProductDetailsComponent } from './components/containers/product-details/product-details.component';
+import { ProductDetailsViewComponent } from './components/presentational/product-details-view/product-details-view.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ShoppingCartModule } from './modules/shopping-cart/shopping-cart.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsListComponent,
     ProductsListViewComponent,
-    ProductsDetailsComponent,
-    ProductsDetailsViewComponent,
+    ProductDetailsComponent,
+    ProductDetailsViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     MatIconModule,
     ShoppingCartModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

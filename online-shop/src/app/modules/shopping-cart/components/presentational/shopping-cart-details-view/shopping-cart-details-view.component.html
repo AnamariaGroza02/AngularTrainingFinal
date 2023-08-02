@@ -11,10 +11,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
-                <td>{{ product.category }}</td>
-                <td>{{ product.name  }}</td>
-                <td>{{ product.price  }}</td>
-                <td>{{ product.quantity  }}</td>
+                <td>{{ product.product.category }}</td>
+                <td>{{ product.product.name  }}</td>
+                <td>{{ product.product.price  }}</td>
+                <td>{{ product.product.quantity  }}</td>
                 <td><app-icon-button iconType="delete" class="buttonType2"></app-icon-button></td>
             </tr>
         </tbody>

@@ -7,5 +7,5 @@ import { IProduct } from 'src/app/types/products.types';
   styleUrls: ['./shopping-cart-details-view.component.scss'],
 })
 export class ShoppingCartDetailsViewComponent {
-  @Input() products: IProduct[] | undefined;
+  @Input() products : any;
 }
