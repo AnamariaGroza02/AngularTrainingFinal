@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
 import { IProduct } from 'src/app/types/products.types';
 
@@ -9,7 +10,7 @@ import { IProduct } from 'src/app/types/products.types';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
-  productDetails?: IProduct;
+  productDetails?: Observable<IProduct>;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService
@@ -17,33 +18,6 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('id');
-    if (productId) {
-      this.getProductDetails(productId);
-    }
+    this.productDetails = this.productService.getProductDetails(productId);
   }
-
-  getProductDetails(productId: string): void {
-    this.productService.getProducts().subscribe({
-      next: (products: IProduct[]) => {
-        this.productDetails = products.find(
-          product => product.productId === productId
-        );
-      },
-      error: error => {
-        console.error('Error fetching product details:', error);
-      },
-    });
-  }
-
-  deleteProduct(productId: string): void {
-    this.productService.deleteProduct(productId).subscribe(
-      () => {
-        // Product deleted successfully, perform any necessary actions (e.g., navigate back to the product list).
-      },
-      error => {
-        console.error('Error deleting product:', error);
-      }
-    );
-  }
-
 }

@@ -1,4 +1,4 @@
-<div *ngIf="productDetails">
+<div *ngIf="productDetails$ | async as productDetails">
   <h3>{{ productDetails.productName }}</h3>
   <p>Category: {{ productDetails.categoryName }}</p>
   <p>Price: {{ productDetails.price }}</p>

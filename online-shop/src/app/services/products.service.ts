@@ -29,9 +29,24 @@ export class ProductsService {
 
   deleteProduct(productId: string): Observable<void> {
     this.products.splice(
-      this.products.findIndex((product) => product.productId === productId)
+      this.products.findIndex(product => product.productId === productId)
     );
     const deleteUrl = `${this.apiUrl}/shop/product/${productId}`;
     return this.http.delete<void>(deleteUrl);
+  }
+
+  getProductDetails(productId: string | null): Observable<IProduct> {
+    const productUrl = `${this.apiUrl}/shop/product/${productId}`;
+    const productDetails = this.http.get<IProduct>(productUrl);
+    return productDetails;
+  }
+
+  updateProduct(productId: string): void {
+    const currentProduct: IProduct | undefined = this.products.find(
+      product => product.productId === productId
+    );
+    console.log(currentProduct);
+    // const updateUrl = `${this.apiUrl}/shop/product/${productId}`;
+    // return this.http.put<IProduct>(updateUrl);
   }
 }
