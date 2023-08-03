@@ -4,5 +4,8 @@
   <p>Price: {{ productDetails.price }}</p>
   <p>Description: {{ productDetails.productDescription }}</p>
   <button (click)="addToCart()">Add to Cart</button>
-  <button (click)=" deleteProduct()">Delete</button>
+  <button (click)="deleteProduct()" [routerLink]="['/products']">Delete</button>
+  <button type="button" [routerLink]="['/edit-form', productDetails.productId]">
+    Edit
+  </button>
 </div>

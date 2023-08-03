@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, of, tap } from 'rxjs';
 import { IProduct } from '../types/products.types';
-import { ICartItem } from '../types/cart.types';
 
 @Injectable({
   providedIn: 'root',
@@ -28,4 +27,11 @@ export class ProductsService {
     );
   }
 
+  deleteProduct(productId: string): Observable<void> {
+    this.products.splice(
+      this.products.findIndex((product) => product.productId === productId)
+    );
+    const deleteUrl = `${this.apiUrl}/shop/product/${productId}`;
+    return this.http.delete<void>(deleteUrl);
+  }
 }

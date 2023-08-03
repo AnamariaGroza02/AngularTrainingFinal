@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ShoppingCartModule } from './modules/shopping-cart/shopping-cart.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductFormComponent } from './components/containers/product-form/product-form.component';
+import { ProductFormViewComponent } from './components/presentational/product-form-view/product-form-view.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsListViewComponent,
     ProductDetailsComponent,
     ProductDetailsViewComponent,
+    ProductFormComponent,
+    ProductFormViewComponent,
   ],
   imports: [
     BrowserModule,

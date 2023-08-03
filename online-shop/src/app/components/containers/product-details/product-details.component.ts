@@ -34,4 +34,16 @@ export class ProductDetailsComponent implements OnInit {
       },
     });
   }
+
+  deleteProduct(productId: string): void {
+    this.productService.deleteProduct(productId).subscribe(
+      () => {
+        // Product deleted successfully, perform any necessary actions (e.g., navigate back to the product list).
+      },
+      error => {
+        console.error('Error deleting product:', error);
+      }
+    );
+  }
+
 }
