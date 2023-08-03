@@ -13,6 +13,7 @@ import { IProduct } from 'src/app/types/products.types';
 export class ProductDetailsViewComponent implements OnInit {
   @Input() productDetails$?: Observable<IProduct>;
   productDetails!: IProduct;
+  showEditForm = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -36,5 +37,8 @@ export class ProductDetailsViewComponent implements OnInit {
         .subscribe(() => window.alert('Your product has been deleted!'));
       this.router.navigate(['/products']);
     }
+  }
+  onEdit(): void {
+    this.showEditForm = true;
   }
 }

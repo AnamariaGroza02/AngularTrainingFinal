@@ -41,12 +41,17 @@ export class ProductsService {
     return productDetails;
   }
 
-  updateProduct(productId: string): void {
-    const currentProduct: IProduct | undefined = this.products.find(
-      product => product.productId === productId
+  updateProduct(product: IProduct): Observable<IProduct> {
+    const updateUrl = `${this.apiUrl}/shop/product/${product.productId}`;
+    return this.http.put<IProduct>(updateUrl, product).pipe(
+      tap(updatedProduct => {
+        const index = this.products.findIndex(
+          p => p.productId === updatedProduct.productId
+        );
+        if (index !== -1) {
+          this.products[index] = updatedProduct;
+        }
+      })
     );
-    console.log(currentProduct);
-    // const updateUrl = `${this.apiUrl}/shop/product/${productId}`;
-    // return this.http.put<IProduct>(updateUrl);
   }
 }

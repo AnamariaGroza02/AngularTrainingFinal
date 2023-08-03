@@ -11,6 +11,7 @@ import { IProduct } from 'src/app/types/products.types';
 })
 export class ProductDetailsComponent implements OnInit {
   productDetails?: Observable<IProduct>;
+
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService

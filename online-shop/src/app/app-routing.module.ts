@@ -4,7 +4,7 @@ import { ProductsListComponent } from './components/containers/products-list/pro
 import { ProductDetailsComponent } from './components/containers/product-details/product-details.component';
 import { ShoppingCartDetailsComponent } from './modules/shopping-cart/components/containers/shopping-cart-details/shopping-cart-details.component';
 import { MyRoutes } from './util/MyRoutes';
-import { ProductFormComponent } from './components/containers/product-form/product-form.component';
+import { ProductFormViewComponent } from './components/presentational/product-form-view/product-form-view.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: MyRoutes.EDIT_FORM,
-    component: ProductFormComponent,
+    component: ProductFormViewComponent,
   },
   {
     path: '**',
