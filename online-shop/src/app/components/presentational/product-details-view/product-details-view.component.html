@@ -1,0 +1,16 @@
+<div *ngIf="!showEditForm" class="card">
+  <div class="container" *ngIf="productDetails$ | async as productDetails">
+    <h3 class="product-name">{{ productDetails.productName }}</h3>
+    <p class="category">Category: {{ productDetails.categoryName }}</p>
+    <p class="price">Price: {{ productDetails.price }}</p>
+    <p class="description">Description: {{ productDetails.productDescription }}</p>
+    <button class="add-to-cart-button" (click)="addToCart()">Add to Cart</button>
+    <button class="delete-button" (click)="deleteProduct()" [routerLink]="['/products']">
+      Delete
+    </button>
+    <button class="edit-button" (click)="onEdit()">Edit</button>
+  </div>
+</div>
+<app-product-form-view
+  *ngIf="showEditForm"
+  [productDetails]="productDetails"></app-product-form-view>

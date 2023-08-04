@@ -1,18 +1,72 @@
-// shopping-cart.service.ts
 import { Injectable } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
+import { ICart, ICartItem } from 'src/app/types/cart.types';
 import { IProduct } from 'src/app/types/products.types';
+import { ShoppingCartDetail } from 'src/app/types/shoppingCart';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShoppingCartService {
-  private cartItems: IProduct[] = [];
+  private cartKey = 'cart';
+  constructor(private productService: ProductsService) {}
 
-  addToCart(product: IProduct): void {
-    this.cartItems.push(product);
+  private getCartFromLocalStorage(): ICart {
+    const cartData = localStorage.getItem(this.cartKey);
+    if (cartData) {
+      return JSON.parse(cartData);
+    } else {
+      return { items: [] };
+    }
   }
 
-  getCartItems(): IProduct[] {
-    return this.cartItems;
+  private saveCartToLocalStorage(cart: ICart): void {
+    localStorage.setItem(this.cartKey, JSON.stringify(cart));
+  }
+
+  getCartItems(): ICartItem[] {
+    return this.getCartFromLocalStorage().items;
+  }
+
+  addProductToCart(product: IProduct): void {
+    const cart = this.getCartFromLocalStorage();
+    const existingItem = cart.items.find(item => item.id === product.productId);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.items.push({ id: product.productId, quantity: 1 });
+    }
+    this.saveCartToLocalStorage(cart);
+  }
+
+  deleteProductFromCart(productId: string): void {
+    const cart = this.getCartFromLocalStorage();
+    cart.items = cart.items.filter(item => item.id !== productId);
+    this.saveCartToLocalStorage(cart);
+  }
+
+  getShoppingCartList(): ShoppingCartDetail[] {
+    const shoppingCartList = JSON.parse(
+      localStorage.getItem(this.cartKey) || '[]'
+    );
+    const shoppingCartProducts: ShoppingCartDetail[] = [];
+
+    this.productService.getProducts().subscribe(data => {
+      data.forEach(item => {
+        for (let i = 0; i < shoppingCartList.items.length; i++) {
+          if (item.productId == shoppingCartList.items[i].id) {
+            shoppingCartProducts.push({
+              id: item.productId,
+              name: item.productName,
+              description: item.productDescription,
+              categoryName: item.categoryName,
+              price: item.price,
+              quantity: shoppingCartList.items[i].quantity,
+            });
+          }
+        }
+      });
+    });
+    return shoppingCartProducts;
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IProduct } from 'src/app/types/products.types';
 
 @Component({
@@ -7,6 +8,5 @@ import { IProduct } from 'src/app/types/products.types';
   styleUrls: ['./products-list-view.component.scss'],
 })
 export class ProductsListViewComponent {
-  @Input() products: IProduct[] | undefined;
-  displayedColumns: string[] = ['name', 'category', 'price', 'description'];
+  @Input() products: Observable<IProduct[]> | undefined;
 }

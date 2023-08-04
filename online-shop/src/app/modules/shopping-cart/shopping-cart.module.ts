@@ -4,6 +4,7 @@ import { ShoppingCartDetailsComponent } from './components/containers/shopping-c
 import { ShoppingCartDetailsViewComponent } from './components/presentational/shopping-cart-details-view/shopping-cart-details-view.component';
 import { IconButtonComponent } from '../shared/types/components/presentational/icon-button/icon-button.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ICart } from 'src/app/types/cart.types';
 
 @NgModule({
   declarations: [
@@ -13,4 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [CommonModule, IconButtonComponent, MatIconModule],
   exports: [ShoppingCartDetailsComponent],
 })
-export class ShoppingCartModule {}
+export class ShoppingCartModule {
+  
+}

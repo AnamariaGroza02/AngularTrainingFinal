@@ -1,0 +1,75 @@
+<form [formGroup]="productForm" class="form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title *ngIf="!isAddRoute()">Update Product</mat-card-title>
+      <mat-card-title *ngIf="isAddRoute()">Create Product</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Product name"
+              formControlName="productName" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Price" formControlName="price" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Weight" formControlName="weight" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Category"
+              formControlName="categoryName" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Image URL"
+              formControlName="imageUrl" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="full-width">
+            <textarea
+              matInput
+              placeholder="Product description"
+              formControlName="productDescription"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        *ngIf="!isAddRoute()"
+        (click)="onSubmit()"
+        mat-raised-button
+        color="primary">
+        Update
+      </button>
+      <button
+        *ngIf="isAddRoute()"
+        (click)="onAdd()"
+        mat-raised-button
+        color="primary">
+        Add
+      </button>
+      <button mat-raised-button (click)="onCancel()" color="warn">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
