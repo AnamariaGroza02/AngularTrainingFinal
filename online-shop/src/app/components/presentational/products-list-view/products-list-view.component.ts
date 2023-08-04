@@ -9,6 +9,4 @@ import { IProduct } from 'src/app/types/products.types';
 })
 export class ProductsListViewComponent {
   @Input() products: Observable<IProduct[]> | undefined;
-  //This is used for Angular material
-  // displayedColumns: string[] = ['name', 'category', 'price', 'description'];
 }

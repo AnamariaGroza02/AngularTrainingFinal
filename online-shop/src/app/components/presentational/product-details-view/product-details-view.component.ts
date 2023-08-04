@@ -20,6 +20,7 @@ export class ProductDetailsViewComponent implements OnInit {
     private productService: ProductsService,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     this.productDetails$?.subscribe(s => (this.productDetails = s));
   }
@@ -30,6 +31,7 @@ export class ProductDetailsViewComponent implements OnInit {
       window.alert('Your product has been added to the cart!');
     }
   }
+
   deleteProduct(): void {
     if (this.productDetails) {
       this.productService
@@ -38,6 +40,7 @@ export class ProductDetailsViewComponent implements OnInit {
       this.router.navigate(['/products']);
     }
   }
+
   onEdit(): void {
     this.showEditForm = true;
   }

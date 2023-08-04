@@ -1,63 +1,77 @@
-//TODO : use this for angular material component
-// section {
-//     display: table;
-//   }
+.product-list {
+	font-family: Tahoma, Geneva, sans-serif;
+}
   
-//   .example-label {
-//     display: table-cell;
-//     font-size: 14px;
-//     margin-left: 8px;
-//     min-width: 120px;
-//   }
+.add-button {
+	padding: 10px 20px;
+  	background-color: #007bff;
+ 	color: white;
+  	border: none;
+ 	border-radius: 5px;
+  	cursor: pointer;
+  	font-size: 14px;
+ 	transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+	background-color: #0056b3;
+}
   
-//   .example-button-row {
-//     display: table-cell;
-//     max-width: 600px;
-//   }
+.table-container {
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
   
-//   .example-button-row .mat-mdc-button-base {
-//     margin: 8px 8px 8px 0;
-//   }
-  
-//   .example-flex-container {
-//     display: flex;
-//     justify-content: space-between;
-//     flex-wrap: wrap;
-//   }
-  
-//   .example-button-container {
-//     display: flex;
-//     justify-content: center;
-//     width: 120px;
-//   }
-  
-table {
+.product-table {
 	border-collapse: collapse;
-    font-family: Tahoma, Geneva, sans-serif;
+	width: 100%;
 }
-table th {
+  
+.product-table th {
 	padding: 15px;
-}
-table th {
 	background-color: #54585d;
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 13px;
 	border: 1px solid #54585d;
 }
-table tbody th {
+  
+  
+.product-row th {
 	color: #636363;
 	border: 1px solid #dddfe1;
-    
 }
-table tbody tr {
+  
+.product-row {
 	background-color: #f9fafb;
 }
-table tbody tr:nth-child(odd) {
+  
+.product-row:nth-child(odd) {
 	background-color: #ffffff;
 }
-td {
-    width: 15%;
-    border: 1px solid #000;
-    text-align: center;
+  
+.product-row td {
+	width: 15%;
+	border: 1px solid #000;
+	text-align: center;
 }
+
+.view-button {
+	padding: 5px 10px;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 12px;
+	transition: background-color 0.3s ease;
+  }
+  
+.view-button:hover {
+	background-color: #1e7e34;
+}
+  
+  

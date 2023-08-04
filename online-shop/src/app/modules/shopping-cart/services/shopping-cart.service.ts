@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { getCartProductsMock } from 'src/app/mocks/products.mocks';
 import { ProductsService } from 'src/app/services/products.service';
 import { ICart, ICartItem } from 'src/app/types/cart.types';
 import { IProduct } from 'src/app/types/products.types';
@@ -31,7 +30,6 @@ export class ShoppingCartService {
 
   addProductToCart(product: IProduct): void {
     const cart = this.getCartFromLocalStorage();
-    console.log(cart);
     const existingItem = cart.items.find(item => item.id === product.productId);
     if (existingItem) {
       existingItem.quantity += 1;
@@ -41,7 +39,6 @@ export class ShoppingCartService {
     this.saveCartToLocalStorage(cart);
   }
 
-  //TODO : check this after connecting with the backend
   deleteProductFromCart(productId: string): void {
     const cart = this.getCartFromLocalStorage();
     cart.items = cart.items.filter(item => item.id !== productId);
