@@ -21,6 +21,7 @@ export class ProductFormViewComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       productName: [''],
       productDescription: [''],
+      categoryName: [''],
       price: [0],
       weight: [0],
       imageUrl: [''],
@@ -46,6 +47,19 @@ export class ProductFormViewComponent implements OnInit {
     if (this.productDetails) {
       this.productForm.patchValue(this.productDetails);
     }
+  }
+  onAdd(): void {
+    const newProduct: IProduct = {
+      ...this.productForm.value,
+    };
+
+    this.productService.createProduct(newProduct).subscribe(createdProduct => {
+      this.router.navigate(['/products']);
+    });
+  }
+
+  isAddRoute(): boolean {
+    return this.router.url === '/add-form';
   }
 
   ngOnInit(): void {

@@ -54,4 +54,13 @@ export class ProductsService {
       })
     );
   }
+
+  createProduct(product: IProduct): Observable<IProduct> {
+    const createUrl = `${this.apiUrl}/shop/product`;
+    return this.http.post<IProduct>(createUrl, product).pipe(
+      tap(newProduct => {
+        this.products.push(newProduct);
+      })
+    );
+  }
 }

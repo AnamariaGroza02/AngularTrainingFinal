@@ -25,6 +25,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/presentational/navbar/navbar.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductDetailsViewComponent,
     ProductFormComponent,
     ProductFormViewComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

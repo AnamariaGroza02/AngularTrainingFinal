@@ -6,13 +6,4 @@ import { ProductsService } from './services/products.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent  {
-  // productsLoaded = false;
-  // constructor(private productsService: ProductsService) {}
-  // ngOnInit(): void {
-  //   this.productsService
-  //     .getProducts()
-  //     .subscribe(() => (this.productsLoaded = true));
-  // }
-  title = 'online-shop';
-}
+export class AppComponent {}

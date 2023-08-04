@@ -27,6 +27,10 @@ const routes: Routes = [
     component: ProductFormViewComponent,
   },
   {
+    path: MyRoutes.ADD_FORM,
+    component: ProductFormViewComponent,
+  },
+  {
     path: '**',
     component: ProductsListComponent,
   },
